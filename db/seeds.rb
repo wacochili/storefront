@@ -22,18 +22,6 @@ Image.create!([
   {image_url: "http://35drsm2kcjyo1uhpn73720ja.wpengine.netdna-cdn.com/wp-content/uploads/2011/04/Heirloom-LA-Cochinita-Pibil-Tacos-Dressed.jpg", taco_id: "1"}
 ])
 Order.create!([
-  {quantity: 4, taco_id: nil, user_id: nil, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 4, taco_id: nil, user_id: nil, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 5, taco_id: nil, user_id: nil, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 5, taco_id: nil, user_id: nil, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 2, taco_id: nil, user_id: nil, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 2, taco_id: nil, user_id: nil, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 3, taco_id: nil, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 7, taco_id: nil, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 5, taco_id: nil, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 65, taco_id: nil, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 3, taco_id: nil, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
-  {quantity: 2, taco_id: nil, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
   {quantity: 3, taco_id: 1, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
   {quantity: 3, taco_id: 2, user_id: 1, tax: "0.0", 2: nil, subtotal: 9, 4: nil, total_price: "9.0", 8: nil},
   {quantity: 3, taco_id: 4, user_id: 1, tax: "1.0", 2: nil, subtotal: 18, 4: nil, total_price: "19.0", 8: nil},
@@ -43,9 +31,6 @@ Order.create!([
   {quantity: 3, taco_id: 3, user_id: 1, tax: "1.35", 2: nil, subtotal: 15, 4: nil, total_price: "16.35", 8: nil},
   {quantity: 3, taco_id: 3, user_id: 1, tax: "1.35", 2: nil, subtotal: 15, 4: nil, total_price: "16.35", 8: nil},
   {quantity: 3, taco_id: 3, user_id: 1, tax: "1.35", 2: nil, subtotal: 15, 4: nil, total_price: "16.35", 8: nil},
-  {quantity: 3, taco_id: nil, user_id: 1, tax: "0.81", 2: nil, subtotal: 9, 4: nil, total_price: "9.81", 8: nil},
-  {quantity: 75, taco_id: nil, user_id: 1, tax: "33.75", 2: nil, subtotal: 375, 4: nil, total_price: "408.75", 8: nil},
-  {quantity: 3, taco_id: nil, user_id: 1, tax: "0.27", 2: nil, subtotal: 3, 4: nil, total_price: "3.27", 8: nil},
   {quantity: 22, taco_id: 2, user_id: 1, tax: "5.94", 2: nil, subtotal: 66, 4: nil, total_price: "71.94", 8: nil},
   {quantity: 3, taco_id: 1, user_id: 1, tax: "0.27", 2: nil, subtotal: 3, 4: nil, total_price: "3.27", 8: nil}
 ])
