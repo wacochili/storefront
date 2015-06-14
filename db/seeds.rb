@@ -1,6 +1,3 @@
-User.create!([
-  {email: "rich.baukovic@brickfish.com", encrypted_password: "$2a$10$1.RGVRT2sFhd1i9VeKIF0OJTaRZlnOrQNA1YKPU0rXcUmTY0YCL5S", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 5, current_sign_in_at: "2015-06-11 01:57:26", last_sign_in_at: "2015-06-10 22:59:54", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
-])
 Image.create!([
   {image_url: "http://www.foodpeoplewant.com/wp-content/uploads/2009/09/Tacos-De-Cochinita-Pibil-1024x686.jpg", taco_id: "1"},
   {image_url: "http://35drsm2kcjyo1uhpn73720ja.wpengine.netdna-cdn.com/wp-content/uploads/2011/04/Heirloom-LA-Cochinita-Pibil-Tacos-Dressed.jpg", taco_id: "1"},
