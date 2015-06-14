@@ -2,7 +2,7 @@ class CreateTacos < ActiveRecord::Migration
   def change
     create_table :tacos do |t|
       t.string :name
-      t.string :price
+      t.decimal :price, precision: 8, scale: 2
       t.string :image
       t.string :description
       t.string :rating
