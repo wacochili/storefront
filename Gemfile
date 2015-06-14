@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'seed_dump'
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 gem 'devise'
