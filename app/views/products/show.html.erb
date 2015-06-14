@@ -14,10 +14,14 @@
             <% end %>
 
             <p>Description: <%= @taco.description %></p>
-            <p>Brought to you by <%= @taco.supplier.name %></p>
-            <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
+            <h3>Categories:</h3>
+            <% @taco.categories.each do |category| %>
+              <p><%= category.name.capitalize %></p>
+            <% end %>
+            <h3>Brought to you by <%= @taco.supplier.name %></h3>
+            <h4>Rating: <span class="rating"><%= @taco.rating %></span></h4>
             <p>Tax: <%= number_to_currency(@taco.tax) %></p>
-            <p>Total: <%= number_to_currency(@taco.total) %></p>
+            <h4>Total: <%= number_to_currency(@taco.total) %></h4>
             <% if current_user %>
             <%= form_tag "/orders", method: :post do %>
               <div>

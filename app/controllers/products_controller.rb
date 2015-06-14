@@ -9,6 +9,10 @@ def index
   elsif params[:sort_discount]
     @tacos = Taco.where("price < ?", 5)
   end
+  if params[:category]
+    @tacos = Category.find_by(name: params[:category]).tacos
+  end
+
 end
 
 def show

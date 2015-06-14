@@ -1,3 +1,22 @@
+CategorizedTaco.create!([
+  {taco_id: 1, category_id: 10},
+  {taco_id: 3, category_id: 11},
+  {taco_id: 4, category_id: 9},
+  {taco_id: 18, category_id: 11},
+  {taco_id: 19, category_id: 11},
+  {taco_id: 20, category_id: 1},
+  {taco_id: 2, category_id: 10},
+  {taco_id: 17, category_id: 11},
+  {taco_id: 3, category_id: 12},
+  {taco_id: 18, category_id: 12}
+])
+Category.create!([
+  {name: "chicken"},
+  {name: "pescado"},
+  {name: "pork"},
+  {name: "beef"},
+  {name: "asador"}
+])
 Image.create!([
   {image_url: "http://www.foodpeoplewant.com/wp-content/uploads/2009/09/Tacos-De-Cochinita-Pibil-1024x686.jpg", taco_id: "1"},
   {image_url: "http://35drsm2kcjyo1uhpn73720ja.wpengine.netdna-cdn.com/wp-content/uploads/2011/04/Heirloom-LA-Cochinita-Pibil-Tacos-Dressed.jpg", taco_id: "1"},
@@ -22,7 +41,6 @@ Image.create!([
   {image_url: "http://35drsm2kcjyo1uhpn73720ja.wpengine.netdna-cdn.com/wp-content/uploads/2011/04/Heirloom-LA-Cochinita-Pibil-Tacos-Dressed.jpg", taco_id: "1"}
 ])
 Order.create!([
-  {quantity: 3, taco_id: 1, user_id: 1, tax: nil, 2: nil, subtotal: nil, 4: nil, total_price: nil, 8: nil},
   {quantity: 3, taco_id: 2, user_id: 1, tax: "0.0", 2: nil, subtotal: 9, 4: nil, total_price: "9.0", 8: nil},
   {quantity: 3, taco_id: 4, user_id: 1, tax: "1.0", 2: nil, subtotal: 18, 4: nil, total_price: "19.0", 8: nil},
   {quantity: 5, taco_id: 1, user_id: 1, tax: "0.0", 2: nil, subtotal: 5, 4: nil, total_price: "5.0", 8: nil},
