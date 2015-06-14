@@ -1,0 +1,23 @@
+    <section>
+      <div class="row">
+
+      <!--Make magic happen here Ruby!-->
+      <% @tacos.each do |taco| %>
+
+        <div class="col-sm-4">
+          <div class="taco_single">
+            <h2><%= taco.name %></h2>
+            <a href="/tacos/<%= taco.id %>" title="View <%= taco.name %>"><img src="<%= taco.images.first.image_url if taco.images.first%>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
+            <p>Description: <%= taco.description %></p>
+            <p>Brought to you by <%= taco.supplier.name %></p>
+            <p>Rating: <span class="rating"><%= taco.rating %></span></p>
+            <h2>Price: <%= number_to_currency(taco.total) %>*</h2>
+            <p>Price with tax. Delivery fees excluded.</p>
+          </div>
+        </div>
+      <% end %>
+      <!--Magic ends--> 
+
+      </div>
+    </section>
+    <%= link_to "Add New Taco", "tacos/new", class: "btn btn-success" %>

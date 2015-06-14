@@ -1,0 +1,16 @@
+  <section>
+    <div class="row">    
+      <div class="col-sm-8"><!--add sidebar later for additional ordering-->
+        <div class="taco_single">
+          <h1>Please review your order:</h1>
+          <h2>Order Number:<%= @order.id %></h2>
+          <p>Quantity: <%= @order.quantity %></p>
+          <p>Subtotal: <%= number_to_currency@order.subtotal %></p>
+          <p>Tax: <%= number_to_currency@order.tax %></p>
+          <p>Total: <%= number_to_currency@order.total_price %></p>
+          <img src="<%= @tacos.images.first.image_url">
+        </div>
+      </div>
+    </div><!--row ends-->
+  </section>
+ 

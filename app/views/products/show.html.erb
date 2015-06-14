@@ -1,0 +1,60 @@
+
+  <section>
+    <div class="row">    
+      <div class="col-sm-8">
+        <div class="taco_single">
+            <h2><%= @taco.name %></h2>
+            <p>Price: <%= number_to_currency@taco.price %></p>
+            <p><%= @taco.sale_message %></p>
+
+            <% @taco.images.each do |img| %>
+
+              <img src="<%= img.image_url %>" class="img-responsive taco_single_image">
+            
+            <% end %>
+
+            <p>Description: <%= @taco.description %></p>
+            <p>Brought to you by <%= @taco.supplier.name %></p>
+            <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
+            <p>Tax: <%= number_to_currency(@taco.tax) %></p>
+            <p>Total: <%= number_to_currency(@taco.total) %></p>
+            <% if current_user %>
+            <%= form_tag "/orders", method: :post do %>
+              <div>
+                
+                <%= text_field_tag :quantity, nil, placeholder: 'Enter Quantity' %>
+              </div>
+              <div>
+                <%= text_field_tag :taco_id, nil, placeholder: 'Taco ID' %>
+              </div>
+              <%= submit_tag "Place Order" %>
+            <% end %>
+            <% else %>
+              <h3>Login to place an order!</h3>
+            <% end %>
+
+
+            <p>Last updated on <%= @taco.friendly_updated_at %></p>
+            <%= link_to "Edit", "/tacos/#{@taco.id}/edit", class: "btn btn-success" %>
+            <%= link_to "Delete", "/tacos/#{@taco.id}", {method: :delete, class: "btn btn-danger" }%>
+        </div>  
+      </div>
+
+      <div class="col-sm-4"><!--sidebar-->
+      <!--Make magic happen here Ruby!-->
+      <% @tacos.each do |taco| %>       
+          <div class="taco_single">
+            <h2><%= taco.name %></h2>
+            <p>Price: $<%= taco.total %> tax included</p>
+            <a href="/tacos/<%= taco.id %>" title="View Taco"><img src="<%= taco.images.first.image_url %>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
+            <p>Description: <%= taco.description %></p>
+            <p>Rating: <span class="rating"><%= taco.rating %></span></p>
+          </div>       
+      <% end %>
+      <!--Magic ends-->
+
+      </div><!--sidebar ends-->
+
+
+    </div><!--row ends-->
+  </section>
