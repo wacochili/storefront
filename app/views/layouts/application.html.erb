@@ -26,15 +26,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><h1>The Taco Store</h1></li>
-        <% if current_user %>
-        <li><a href="/shopping_cart/"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-        <% else %>
-        <li><a href="/">Login to view cart</a></li>
-        <% end %>
+        
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <li><a href="/shopping_cart/"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <% else %>
+        <li>Login to view cart<span class="glyphicon glyphicon-shopping-cart"></span></li>
+        <% end %>
         <li class="dropdown">
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/tacos/new">Add Taco</a></li>
