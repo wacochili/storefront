@@ -26,6 +26,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><h1>The Taco Store</h1></li>
+        <% if current_user %>
+        <li><a href="/shopping_cart/"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <% else %>
+        <li><a href="/">Login to view cart</a></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

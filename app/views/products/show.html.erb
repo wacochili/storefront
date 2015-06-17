@@ -23,7 +23,7 @@
             <p>Tax: <%= number_to_currency(@taco.tax) %></p>
             <h4>Total: <%= number_to_currency(@taco.total) %></h4>
             <% if current_user %>
-            <%= form_tag "/orders", method: :post do %>
+            <%= form_tag "/shopping_cart", method: :post do %>
               <div>
                 
                 <%= text_field_tag :quantity, nil, placeholder: 'Enter Quantity' %>
@@ -31,7 +31,7 @@
               <div>
                 <%= text_field_tag :taco_id, nil, placeholder: 'Taco ID' %>
               </div>
-              <%= submit_tag "Place Order" %>
+              <%= submit_tag "Add To Cart" %>
             <% end %>
             <% else %>
               <h3>Login to place an order!</h3>

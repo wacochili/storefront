@@ -1,0 +1,9 @@
+<h1>Here is your order:</h1>
+<% @carted_tacos.each do |carted_taco| %>
+  <p><%= carted_taco.taco.name %></p>
+  <p><%= carted_taco.quantity %></p>
+<% end %>
+
+<%= form_tag "/orders", method: :post do %>
+<%= submit_tag "Place Order" %>
+<% end %>

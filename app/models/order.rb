@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   SALES_TAX = 0.09
   belongs_to :user
   belongs_to :taco
+  has_many :carted_tacos
 
   # def tax
   #   tax = (price.to_f * SALES_TAX) #is price available to me here? Was the association has_many :tacos enough?

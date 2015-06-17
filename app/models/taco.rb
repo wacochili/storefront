@@ -4,6 +4,7 @@ class Taco < ActiveRecord::Base
   has_many :images
   has_many :categorized_tacos
   has_many :categories, through: :categorized_tacos
+  has_many :carted_tacos
   SALES_TAX = 0.09
   def friendly_updated_at
     updated_at.strftime("%b %d, %Y")
