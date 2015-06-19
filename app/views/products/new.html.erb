@@ -1,3 +1,14 @@
+<% if @cart && @cart.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this taco from being added to your cart:</h2>
+ 
+    <ul>
+    <% @cart.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
     <section>
       <div class="row">
         <div class="col-sm-9">
@@ -8,11 +19,11 @@
 
             <div>
               <%= label_tag :name %>
-              <%= text_field_tag :name %>
+              <%= text_field_tag :name, @taco.name %>
             </div>
             <div>
               <%= label_tag :price %>
-              <%= text_field_tag :price %>
+              <%= text_field_tag :price, @taco.price %>
             </div>
             <div>
               <%= label_tag :image_1 %>
@@ -24,15 +35,15 @@
             </div>
             <div>
               <%= label_tag :description %>
-              <%= text_field_tag :description %>
+              <%= text_field_tag :description, @taco.description %>
             </div>
             <div>
               <%= label_tag :rating %>
-              <%= text_field_tag :rating %>
+              <%= text_field_tag :rating, @taco.rating %>
             </div>
             <div>
-              <%= label_tag :supplier %>
-              <%= text_field_tag :supplier %>
+              <%= label_tag :supplier_id %>
+              <%= text_field_tag :supplier_id %>
             </div>
             <%= submit_tag "Add Taco" %>
             <% end %>

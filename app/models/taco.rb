@@ -5,7 +5,15 @@ class Taco < ActiveRecord::Base
   has_many :categorized_tacos
   has_many :categories, through: :categorized_tacos
   has_many :carted_tacos
+  
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :description, presence: true
+  
+  
+
   SALES_TAX = 0.09
+
   def friendly_updated_at
     updated_at.strftime("%b %d, %Y")
   end

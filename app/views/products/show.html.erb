@@ -1,5 +1,4 @@
-
-  <section>
+   <section>
     <div class="row">    
       <div class="col-sm-8">
         <div class="taco_single">
@@ -29,7 +28,7 @@
                 <%= text_field_tag :quantity, nil, placeholder: 'Enter Quantity' %>
               </div>
               <div>
-                <%= text_field_tag :taco_id, nil, placeholder: 'Taco ID' %>
+                <%= hidden_field_tag :taco_id, @taco.id %>
               </div>
               <%= submit_tag "Add To Cart" %>
             <% end %>
@@ -39,8 +38,10 @@
 
 
             <p>Last updated on <%= @taco.friendly_updated_at %></p>
+            <% if user_signed_in? && current_user.admin %>
             <%= link_to "Edit", "/tacos/#{@taco.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/tacos/#{@taco.id}", {method: :delete, class: "btn btn-danger" }%>
+            <% end %>
         </div>  
       </div>
 

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+before_action :authenticate_admin!, except: [:index, :show, :search]
 
 def index
   @tacos = Taco.all
@@ -26,31 +27,52 @@ def show
 end
 
 def new
+  unless user_signed_in? && current_user.admin
+    redirect_to "/"
+  end
+    @taco = Taco.new
 end
 def create
-  @taco = Taco.create(id: params[:id],name: params[:name],price: params[:price], description: params[:description],rating: params[:rating])
+  unless user_signed_in? && current_user.admin
+    redirect_to "/"
+  end
+  @taco = Taco.new(id: params[:id],name: params[:name],price: params[:price], description: params[:description], rating: params[:rating], supplier_id: params[:supplier_id])
   Image.create(taco_id: @taco.id, image_url: params[:image_1]) if params[:image_1] != ""
   Image.create(taco_id: @taco.id, image_url: params[:image_2]) if params[:image_2] != ""
-
-  flash[:success] = "Taco made!"
-  redirect_to "/tacos/#{@taco.id}"
+  if @taco.save
+    flash[:success] = "Taco made!"
+    redirect_to "/tacos/#{@taco.id}"
+  else
+    render :new
+  end
 end
 
 def edit
+  unless user_signed_in? && current_user.admin
+    redirect_to "/"
+  end
   @taco = Taco.find_by(id: params[:id])
 end
 
 def update
+  unless user_signed_in? && current_user.admin
+    redirect_to "/"
+  end
   @taco = Taco.find_by(id: params[:id])
-  @taco.update(id: params[:id],name: params[:name],price: params[:price], description: params[:description],rating: params[:rating])
-  Image.create(taco_id: @taco.id, image_url: params[:image_1]) if params[:image_1] != ""
-  Image.create(taco_id: @taco.id, image_url: params[:image_2]) if params[:image_2] != ""
-
-  flash[:success] = "This taco has been updated!"
-  redirect_to "/tacos/#{@taco.id}"
+    if @taco.update(id: params[:id],name: params[:name],price: params[:price], description: params[:description],rating: params[:rating])
+    Image.create(taco_id: @taco.id, image_url: params[:image_1]) if params[:image_1] != ""
+    Image.create(taco_id: @taco.id, image_url: params[:image_2]) if params[:image_2] != ""
+    flash[:success] = "This taco has been updated!"
+    redirect_to "/tacos/#{@taco.id}"
+  else
+    render :edit
+  end
 end
 
 def destroy
+  unless user_signed_in? && current_user.admin
+    redirect_to "/"
+  end
   @taco = Taco.find_by(id: params[:id])
   @taco.destroy
   flash[:warning] = "Taco destroyed!"

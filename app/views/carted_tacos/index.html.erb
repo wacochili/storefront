@@ -2,6 +2,7 @@
 <% @carted_tacos.each do |carted_taco| %>
   <p><%= carted_taco.taco.name %></p>
   <p><%= carted_taco.quantity %></p>
+  <%= link_to "Remove", "/shopping_cart/#{carted_taco.id}", method: :delete %>
 <% end %>
 
 <%= form_tag "/orders", method: :post do %>

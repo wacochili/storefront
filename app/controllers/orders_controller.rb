@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user! #devise offers this
+  SALES_TAX = 0.09
   def create
-    @order = Order.create(user_id: current_user.id) # creates a row in the table with the id of the order and the user_id filled out
+    @order = Order.create(user_id: current_user.id) ##creates a row in the table with the id of the order and the user_id filled out
 
-    @carted_tacos = current_user.carted_tacos
+    @carted_tacos = current_user.carted_tacos.where(status: "carted")
 
     @purple_hippo = 0
     @carted_tacos.each do |carted_taco|
@@ -23,6 +25,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id])
+    if @order.user_id != current_user.id
+      redirect_to "/"
+    end
   end
 
   def edit

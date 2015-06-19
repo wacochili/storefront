@@ -2,7 +2,7 @@
     <div class="row">    
       <div class="col-sm-8"><!--add sidebar later for additional ordering-->
         <div class="taco_single">
-          <h1>Please review your order:</h1>
+          <h1>Thanks for your order!</h1>
           <h2>Order Number:<%= @order.id %></h2>
           <% @order.carted_tacos.each do |carted_taco| %>
             <p><%= carted_taco.taco.name %>: <%= carted_taco.quantity %></p>
